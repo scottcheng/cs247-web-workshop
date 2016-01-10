@@ -4,6 +4,7 @@ var $ = require('gulp-load-plugins')();
 var webpack = require('webpack');
 var del = require('del');
 var run = require('run-sequence');
+var jade = require('jade');
 
 var paths = {
   src: './src',
@@ -17,10 +18,34 @@ gulp.task('webpack', function(callback) {
   });
 });
 
+var esc = function(s) {
+  var escapeMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+
+  return s.replace(/[&<>"']/g, function(char) {
+    return escapeMap[char];
+  });
+}
+jade.filters.htmlsrc = function(block) {
+  return '<pre><code class=\"html\">' + esc(block) + '</code></pre>';
+};
+jade.filters.csssrc = function(block) {
+  return '<pre><code class=\"css\">' + esc(block) + '</code></pre>';
+};
+jade.filters.jsssrc = function(block) {
+  return '<pre><code class=\"javascript\">' + esc(block) + '</code></pre>';
+};
 gulp.task('jade', function() {
   return gulp.src(paths.src + '/views/index.jade')
     .pipe($.plumber())
-    .pipe($.jade())
+    .pipe($.jade({
+      jade: jade,
+    }))
     .pipe(gulp.dest(paths.dist));
 });
 

@@ -1,0 +1,213 @@
+h2 CSS
+
+p Share styles across elements and keep things DRY (Don't Repeat Yourself).
+
+section
+  h3 Selectors
+
+  .code
+    :csssrc
+      /* Multiple selectors */
+      .message.active {
+        border-left: 2px solid blue;
+        padding-left: 10px;
+      }
+
+      /* Descendents */
+      .message .content {
+        color: blue;
+      }
+
+      /* Child */
+      .message > .content {
+        color: red;
+      }
+
+      /* Pseudo classes */
+      .reply:hover {
+        padding-left: 10px;
+      }
+      input:focus {
+        border-color: blue;
+      }
+      .reply:first-child {
+        font-style: italic;
+      }
+      .reply:last-child {
+        font-weight: 700;
+      }
+      .reply:nth-child(2n+1) {
+        text-transform: uppercase;
+      }
+  .demo
+    p(data-height='230' data-theme-id='21654' data-slug-hash='adWMJO' data-default-tab='result' data-user='scottcheng' class='codepen')
+
+
+section
+  h3 Box model
+
+  img(src='./assets/box-model.png' width='200px')
+
+  .code
+    :csssrc
+      .box {
+        padding: 10px;
+        border: 1px solid black;
+      }
+      .bad {
+        width: 78px;
+      }
+      .good {
+        box-sizing: border-box;
+        width: 100px;
+      }
+  .demo
+    p(data-height='150' data-theme-id='21654' data-slug-hash='obWVeY' data-default-tab='result' data-user='scottcheng' class='codepen')
+
+  .tip
+    :csssrc
+      /* Always border-box everything */
+      *, *:before, *:after {
+        box-sizing: border-box;
+      }
+
+section
+  h3 Position
+  p
+    | Absolute positioned element is positioned relative to its 
+    em closest ancestor that is not statically positioned
+    |  (i.e. 
+    code position: static
+    | )
+    | , or if such an ancestor does not exist, the window.
+
+  .code
+    :csssrc
+      .relative {
+        position: relative;
+      }
+      .close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+      }
+  .demo
+    p(data-height='200' data-theme-id='21654' data-slug-hash='bEWZax' data-default-tab='result' data-user='scottcheng' class='codepen')
+
+//- section
+  h3 Stacking context
+
+section.activity
+  h3 Layout exercise
+
+  p
+    | Implement the layout of left screen in 
+    a(href='https://dribbble.com/shots/2227334-Social-calendar-app-mobile/attachments/414228' target='_blank') this design
+    | :
+  div: img(src='https://d13yacurqjgara.cloudfront.net/users/149817/screenshots/2227334/nahlad.png' width='400px')
+  p
+    | Fork 
+    a(href='http://codepen.io/scottcheng/pen/EPmJyW/' target='_blank') this pen
+    |  to start.
+  p Focus on the position and size of each UI component, and don't worry too much about details like shadows, icons and colors. Pay attention to which elements should be scrollable.
+  //- https://dribbble.com/shots/1980532-Timeline-Profile/attachments/346173
+  //- http://loremflickr.com/
+
+.reference
+  p
+    a(href='http://learnlayout.com/' target='_blank') This tutorial
+    |  is great for learning layouts in CSS
+.reference
+  p
+    | Flexbox is a more cutting-edge solution to CSS layout. Learn about it 
+    a(href='http://flexboxfroggy.com/' target='_blank') here
+    | !
+
+section
+  h3 Transition
+  p Smooth and natural.
+  .code
+    :csssrc
+      .button {
+        transition: background .25s;
+      }
+      .arrow {
+        transition: transform 2s;
+      }
+      .button:hover {
+        background: #db4848;
+      }
+      .button:active .arrow {
+        transform: translateX(20px) scale(2);
+        transition: transform .25s;
+      }
+  .demo
+    p(data-height='160' data-theme-id='21654' data-slug-hash='RrVdJj' data-default-tab='result' data-user='scottcheng' class='codepen')
+
+//- .activity
+  h3 Make a fancy link
+  //- padding, transition, color, size, transform, use your imagination
+
+//- section
+  h3 Selector specificity
+
+section
+  h3 Font icons
+  p Infinitely scalable, easily stylable
+  .code
+    :htmlsrc
+      <span class="fa fa-cab"></span>
+      <span class="fa fa-train"></span>
+      <span class="fa fa-rocket"></span>
+      <span class="fa fa-ambulance"></span>
+      <span class="fa fa-shopping-cart"></span>
+  .demo
+    p(data-height='151' data-theme-id='21654' data-slug-hash='PZmLxa' data-default-tab='result' data-user='scottcheng' class='codepen')
+
+  .reference
+    p Two great, easy-to-use font icon solutions:
+    ul
+      li
+        a(href='https://fortawesome.github.io/Font-Awesome/' target='_blank') Font Awesome
+        |  provides a comprehensive set of font icons.
+      li
+        a(href='https://icomoon.io/app/' target='_blank') Icomoon App
+        |  is a tool to make your icon font from various existing libraries.
+
+section
+  h3 Preprocessors
+  p
+    | CSS is hard to write, and preprocessors make it 
+    em much
+    |  easier.
+  .code
+    pre: code.stylus.
+      // Variables
+      blue = #328ddc;
+      margin-large = 20px;
+      margin-small = 5px;
+
+      // Nesting
+      .message
+        margin: margin-large;
+        .reply
+          margin: margin-small;
+
+      // Mixins
+      info-box(color)
+        background: lighten(color, 95%);
+        padding: margin-large;
+        border-left: 5px solid color;
+      .tip
+        info-box(blue);
+      .reference
+        info-box(yellow);
+
+  .reference
+    p
+      | Three most popular CSS preprocessors: 
+      a(href='http://stylus-lang.com/' target='_blank') Stylus
+      | , 
+      a(href='http://sass-lang.com/' target='_blank') Sass
+      | , 
+      a(href='http://lesscss.org/' target='_blank') Less.

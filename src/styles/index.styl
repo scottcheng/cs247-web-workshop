@@ -1,5 +1,13 @@
 @import 'nib'
 
+red = #c82829
+blue = #328ddc
+yellow = #eab700
+green = #718c00
+gray-dark = #444
+gray-light = #bbb
+gray-lighter = #eee
+
 *, *:before, *:after
   box-sizing border-box
 
@@ -7,6 +15,57 @@ body
   font-size 16px
   font-family Lato, sans-serif
   padding 50px
+  color gray-dark
 
-.fa
+a, a:focus, a:active
+  color blue
+  outline none
+
+img
+  max-width 100%
+
+code
+  font-size .85em
+
+p, li
+  line-height 1.4
+
+input[type='text']
+  padding 5px 10px
+  border-radius 3px
+  border 1px solid gray-light
+  &:focus
+    outline none
+
+.demo
+  border 1px solid gray-lighter
+  border-radius 0 0 5px 5px
+  iframe
+    display block
+
+.hljs
+  background transparent
+
+info-box(color)
+  background lighten(color, 95%)
+  padding 15px 15px 15px 20px
+  border-left 5px solid color
+  margin-top 20px
+  border-radius 0 5px 5px 0
+  > *:first-child
+    margin-top 0
+  > *:last-child
+    margin-bottom 0
+
+.tip
+  info-box(red)
+  pre, p
+    margin 0
+.reference
+  info-box(yellow)
+.activity
+  info-box(blue)
+
+h1 .fa
   margin-left 10px
+  color red

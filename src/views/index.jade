@@ -8,12 +8,25 @@ html
 
     link(rel='stylesheet' href='//brick.a.ssl.fastly.net/Lato:300,300i,400,400i,700')
     link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css')
 
     script(src='main.js')
 
   body
 
-    h1 Static Website Boilerplate
-    p
-      i Have fun building websites!
-      span.fa.fa-camera-retro
+    h1
+      | Web Programming Workshop
+      span.fa.fa-hand-peace-o
+
+    include _css
+
+    include _js
+
+    h2 Interaction
+
+    script(async src='//assets.codepen.io/assets/embed/ei.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js')
+    script hljs.initHighlightingOnLoad();
+
+    script.
+      var youcannotfindme = {};
