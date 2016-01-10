@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CS 247 Web Workshop</title><link rel="stylesheet" href="//brick.a.ssl.fastly.net/Lato:300,300i,400,400i,700"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css"><script src="main.js"></script></head><body><h1>Web Programming Workshop<span class="fa fa-hand-peace-o"></span></h1><h2>CSS</h2><p>Share styles across elements and keep things DRY (Don't Repeat Yourself).</p><section><h3>Selectors</h3><div class="code"><pre><code class="css">/* Multiple selectors */
+.message.active {
+  border-left: 2px solid blue;
+  padding-left: 10px;
+}
+
+/* Descendents */
+.message .content {
+  color: blue;
+}
+
+/* Child */
+.message &gt; .content {
+  color: red;
+}
+
+/* Pseudo classes */
+.reply:hover {
+  padding-left: 10px;
+}
+input:focus {
+  border-color: blue;
+}
+.reply:first-child {
+  font-style: italic;
+}
+.reply:last-child {
+  font-weight: 700;
+}
+.reply:nth-child(2n+1) {
+  text-transform: uppercase;
+}</code></pre></div><div class="demo"><p data-height="230" data-theme-id="21654" data-slug-hash="adWMJO" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Box model</h3><img src="./assets/box-model.png" width="200px"><div class="code"><pre><code class="css">.box {
+  padding: 10px;
+  border: 1px solid black;
+}
+.bad {
+  width: 78px;
+}
+.good {
+  box-sizing: border-box;
+  width: 100px;
+}</code></pre></div><div class="demo"><p data-height="150" data-theme-id="21654" data-slug-hash="obWVeY" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="tip"><pre><code class="css">/* Always border-box everything */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+</code></pre></div></section><section><h3>Position</h3><p>Absolute positioned element is positioned relative to its <em>closest ancestor that is not statically positioned</em> (i.e. <code>position: static</code>)
+, or if such an ancestor does not exist, the window.</p><div class="code"><pre><code class="css">.relative {
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}</code></pre></div><div class="demo"><p data-height="200" data-theme-id="21654" data-slug-hash="bEWZax" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section class="activity"><h3>Layout exercise</h3><p>Implement the layout of left screen in <a href="https://dribbble.com/shots/2227334-Social-calendar-app-mobile/attachments/414228" target="_blank">this design</a>:</p><div><img src="https://d13yacurqjgara.cloudfront.net/users/149817/screenshots/2227334/nahlad.png" width="400px"></div><p>Fork <a href="http://codepen.io/scottcheng/pen/EPmJyW/" target="_blank">this pen</a> to start.</p><p>Focus on the position and size of each UI component, and don't worry too much about details like shadows, icons and colors. Pay attention to which elements should be scrollable.</p></section><div class="reference"><p><a href="http://learnlayout.com/" target="_blank">This tutorial</a> is great for learning layouts in CSS</p></div><div class="reference"><p>Flexbox is a more cutting-edge solution to CSS layout. Learn about it <a href="http://flexboxfroggy.com/" target="_blank">here</a>!</p></div><section><h3>Transition</h3><p>Smooth and natural.</p><div class="code"><pre><code class="css">.button {
+  transition: background .25s;
+}
+.arrow {
+  transition: transform 2s;
+}
+.button:hover {
+  background: #db4848;
+}
+.button:active .arrow {
+  transform: translateX(20px) scale(2);
+  transition: transform .25s;
+}</code></pre></div><div class="demo"><p data-height="160" data-theme-id="21654" data-slug-hash="RrVdJj" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Font icons</h3><p>Infinitely scalable, easily stylable</p><div class="code"><pre><code class="html">&lt;span class=&quot;fa fa-cab&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fa fa-train&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fa fa-rocket&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fa fa-ambulance&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;fa fa-shopping-cart&quot;&gt;&lt;/span&gt;</code></pre></div><div class="demo"><p data-height="151" data-theme-id="21654" data-slug-hash="PZmLxa" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="reference"><p>Two great, easy-to-use font icon solutions:</p><ul><li><a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> provides a comprehensive set of font icons.</li><li><a href="https://icomoon.io/app/" target="_blank">Icomoon App</a> is a tool to make your icon font from various existing libraries.</li></ul></div></section><section><h3>Preprocessors</h3><p>CSS is hard to write, and preprocessors make it <em>much</em> easier.</p><div class="code"><pre><code class="stylus">// Variables
+blue = #328ddc;
+margin-large = 20px;
+margin-small = 5px;
+
+// Nesting
+.message
+  margin: margin-large;
+  .reply
+    margin: margin-small;
+
+// Mixins
+info-box(color)
+  background: lighten(color, 95%);
+  padding: margin-large;
+  border-left: 5px solid color;
+.tip
+  info-box(blue);
+.reference
+  info-box(yellow);
+</code></pre></div><div class="reference"><p>Three most popular CSS preprocessors: <a href="http://stylus-lang.com/" target="_blank">Stylus</a>, <a href="http://sass-lang.com/" target="_blank">Sass</a>, <a href="http://lesscss.org/" target="_blank">Less.</a></p></div></section><h2>JavaScript</h2><section><h3>Variables</h3></section><section><h3>Async</h3></section><section><h3>ES6</h3></section><h2>Interaction</h2><script async src="//assets.codepen.io/assets/embed/ei.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script>var youcannotfindme = {};</script></body></html>
