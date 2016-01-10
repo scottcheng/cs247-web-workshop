@@ -44,7 +44,11 @@ input:focus {
   box-sizing: border-box;
 }
 </code></pre></div></section><section><h3>Position</h3><p>Absolute positioned element is positioned relative to its <em>closest ancestor that is not statically positioned</em> (i.e. <code>position: static</code>)
-, or if such an ancestor does not exist, the window.</p><div class="code"><pre><code class="css">.relative {
+, or if such an ancestor does not exist, the window.</p><div class="code"><pre><code class="css">.first {
+  /* This is the default value */
+  /* position: static; */
+}
+.second {
   position: relative;
 }
 .close {
@@ -87,4 +91,132 @@ info-box(color)
   info-box(blue);
 .reference
   info-box(yellow);
-</code></pre></div><div class="reference"><p>Three most popular CSS preprocessors: <a href="http://stylus-lang.com/" target="_blank">Stylus</a>, <a href="http://sass-lang.com/" target="_blank">Sass</a>, <a href="http://lesscss.org/" target="_blank">Less.</a></p></div></section><h2>JavaScript</h2><section><h3>Variables</h3></section><section><h3>Async</h3></section><section><h3>ES6</h3></section><h2>Interaction</h2><script async src="//assets.codepen.io/assets/embed/ei.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script>var youcannotfindme = {};</script></body></html>
+</code></pre></div><div class="reference"><p>Three most popular CSS preprocessors: <a href="http://stylus-lang.com/" target="_blank">Stylus</a>, <a href="http://sass-lang.com/" target="_blank">Sass</a>, <a href="http://lesscss.org/" target="_blank">Less.</a></p></div></section><h2>JavaScript</h2><section><h3>Variables</h3><div class="code"><pre><code class="javascript">// Primitive types
+var num = 1;
+var str = &#039;pizza&#039;;
+var boo = false;
+var und = undefined;
+var nil = null;
+
+// Object
+var obj = {
+  key: &#039;value&#039;,
+  kee: 42,
+  kid: {
+    isGood: true,
+  },
+  kiwi: null,
+};
+
+// Arrays are special objects
+var arr = [&#039;value&#039;, 42, { isGood: true }, null];
+
+// Functions are callable objects
+var fn = function(thing) {
+  return &#039;I saw a &#039; + thing;
+};
+console.log(fn(&#039;squirrel&#039;));
+
+// IIFE (Immediately-Invoked Function Expression)
+(function() {
+  console.log(&#039;Aloha&#039;);
+})();
+// Equals to
+var sayAloha = function() {
+  console.log(&#039;Aloha&#039;);
+};
+sayAloha();
+
+
+// Variables are function-scoped, not block-scoped
+for (var i = 0; i &lt; 10; i++) {}
+// i === 10
+
+var fn2 = function() {
+  var localVar = 5;
+};
+// localVar is not defined here
+
+
+// Primitives are pass-by-value, objects are pass-by-reference
+var doSomething = function(obj) {
+  obj.secret = &#039;Cannot tell you&#039;;
+};
+var luke = { name: &#039;Luke&#039; };
+doSomething(luke);
+// luke.secret is exposed!
+</code></pre></div><div class="tip"><p>Always use triple equals to compare variables:</p><div class="code"><pre><code class="javascript">var go = token === user.token;
+var stop = token !== user.token;
+</code></pre></div></div></section><section><h3>Asynchronous JavaScript</h3><div class="code"><pre><code class="javascript">// Callback functions
+var play = function() {
+  console.log(&#039;Play with cat&#039;);
+};
+var eatAnd = function(then) {
+  console.log(&#039;Eat pizza&#039;);
+  then();
+};
+eatAnd(play);
+
+
+// Saving local variables with closure
+// Asynchronous function
+var getData = function(id, callback) {
+  setTimeout(function() {
+    var result = Math.random();
+    callback(result);
+  }, 50);
+};
+
+// Buggy version
+for (var id = 0; id &lt; 3; id++) {
+  getData(id, function(data) {
+    console.log(id, data);
+  });
+}
+
+// Correct version
+for (var id = 0; id &lt; 3; id++) {
+  // Save id with IIFE
+  (function(_id) {
+    getData(_id, function(data) {
+      console.log(_id, data);
+    });
+  })(id);
+}
+
+// Alternatively
+[0, 1, 2].forEach(function(id) {
+  getData(id, function(data) {
+    console.log(id, data);
+  });
+});
+</code></pre></div><div class="reference"><p><a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742" target="_blank"><i>JavaScript: The Good Parts</i></a> and <a href="http://eloquentjavascript.net/" target="_blank"><i>Eloquent JavaScript</i></a> are some good books to learn JavaScript.</p></div></section><section><h3>ECMAScript 6</h3><p>Latest standard of JavaScript with tons of great features.</p><div class="code"><pre><code class="javascript">// Block-scoped variables and const varialbes
+for (let i = 0; i &lt; 10; i++) {}
+// i is not defined here
+
+const lunch = &#039;pizza&#039;;
+decided = &#039;salad&#039;; // Error
+
+
+// Arrow functions
+const add = (a, b) =&gt; a + b;
+
+
+// Template strings
+const user = { name: &#039;Luke&#039; };
+const str = `Greetings ${user.name}`;
+
+
+// Destructuring
+const options = {
+  method: &#039;GET&#039;,
+  url: &#039;http://...&#039;,
+};
+const { method, url } = options;
+const ajax = ({ method, url }) =&gt; {
+  // ...
+};
+
+
+// And much more
+</code></pre></div><div class="reference"><p>Learn more about what's new in ES6 <a href="https://github.com/lukehoban/es6features" target="_blank">here</a>!</p></div></section><h2>Interaction</h2><script async src="//assets.codepen.io/assets/embed/ei.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script>var youcannotfindme = {};</script></body></html>
