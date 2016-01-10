@@ -2,21 +2,167 @@ h2 JavaScript
 
 section
   h3 Variables
-  //- Basic (?) types
-  //- Arrays and objects
-  //- Functions
-  //- Equality
-  //- Scope
+  .code
+    :jssrc
+      // Primitive types
+      var num = 1;
+      var str = 'pizza';
+      var boo = false;
+      var und = undefined;
+      var nil = null;
+
+      // Object
+      var obj = {
+        key: 'value',
+        kee: 42,
+        kid: {
+          isGood: true,
+        },
+        kiwi: null,
+      };
+
+      // Arrays are special objects
+      var arr = ['value', 42, { isGood: true }, null];
+
+      // Functions are callable objects
+      var fn = function(thing) {
+        return 'I saw a ' + thing;
+      };
+      console.log(fn('squirrel'));
+
+      // IIFE (Immediately-Invoked Function Expression)
+      (function() {
+        console.log('Aloha');
+      })();
+      // Equals to
+      var sayAloha = function() {
+        console.log('Aloha');
+      };
+      sayAloha();
+
+
+      // Variables are function-scoped, not block-scoped
+      for (var i = 0; i < 10; i++) {}
+      // i === 10
+
+      var fn2 = function() {
+        var localVar = 5;
+      };
+      // localVar is not defined here
+
+
+      // Primitives are pass-by-value, objects are pass-by-reference
+      var doSomething = function(obj) {
+        obj.secret = 'Cannot tell you';
+      };
+      var luke = { name: 'Luke' };
+      doSomething(luke);
+      // luke.secret is exposed!
+
+  .tip
+    p Always use triple equals to compare variables:
+    .code
+      :jssrc
+        var go = token === user.token;
+        var stop = token !== user.token;
 
 section
-  h3 Async
-  //- Callback
-  //- Eat pizza
-  //- Play with cat
+  h3 Asynchronous JavaScript
+  .code
+    :jssrc
+      // Callback functions
+      var play = function() {
+        console.log('Play with cat');
+      };
+      var eatAnd = function(then) {
+        console.log('Eat pizza');
+        then();
+      };
+      eatAnd(play);
 
-  //- Closures
 
-  //- Ref: JavaScript the good parts
+      // Saving local variables with closure
+      // Asynchronous function
+      var getData = function(id, callback) {
+        setTimeout(function() {
+          var result = Math.random();
+          callback(result);
+        }, 50);
+      };
+
+      // Buggy version
+      for (var id = 0; id < 3; id++) {
+        getData(id, function(data) {
+          console.log(id, data);
+        });
+      }
+
+      // Correct version
+      for (var id = 0; id < 3; id++) {
+        // Save id with IIFE
+        (function(_id) {
+          getData(_id, function(data) {
+            console.log(_id, data);
+          });
+        })(id);
+      }
+
+      // Alternatively
+      [0, 1, 2].forEach(function(id) {
+        getData(id, function(data) {
+          console.log(id, data);
+        });
+      });
+
+  //- h3
+    code this
+    |  Context
+
+  .reference
+    p
+      a(href='http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742' target='_blank'): i JavaScript: The Good Parts
+      |  and 
+      a(href='http://eloquentjavascript.net/' target='_blank'): i Eloquent JavaScript
+      |  are some good books to learn JavaScript.
 
 section
-  h3 ES6
+  h3 ECMAScript 6
+  p Latest standard of JavaScript with tons of great features.
+
+  .code
+    :jssrc
+      // Block-scoped variables and const varialbes
+      for (let i = 0; i < 10; i++) {}
+      // i is not defined here
+
+      const lunch = 'pizza';
+      decided = 'salad'; // Error
+
+
+      // Arrow functions
+      const add = (a, b) => a + b;
+
+
+      // Template strings
+      const user = { name: 'Luke' };
+      const str = `Greetings ${user.name}`;
+
+
+      // Destructuring
+      const options = {
+        method: 'GET',
+        url: 'http://...',
+      };
+      const { method, url } = options;
+      const ajax = ({ method, url }) => {
+        // ...
+      };
+
+
+      // And much more
+
+  .reference
+    p
+      | Learn more about what's new in ES6 
+      a(href='https://github.com/lukehoban/es6features' target='_blank') here
+      | !

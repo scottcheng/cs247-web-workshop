@@ -37,7 +37,7 @@ jade.filters.htmlsrc = function(block) {
 jade.filters.csssrc = function(block) {
   return '<pre><code class=\"css\">' + esc(block) + '</code></pre>';
 };
-jade.filters.jsssrc = function(block) {
+jade.filters.jssrc = function(block) {
   return '<pre><code class=\"javascript\">' + esc(block) + '</code></pre>';
 };
 gulp.task('jade', function() {
