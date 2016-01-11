@@ -14,15 +14,16 @@ html
 
   body
 
-    h1
-      | Web Programming Workshop
-      span.fa.fa-hand-peace-o
+    #side
+      include _nav
 
-    include _css
-
-    include _js
-
-    include _interaction
+    #main-content
+      h1
+        | Web Programming Workshop
+        span.fa.fa-hand-peace-o
+      include _css
+      include _js
+      include _interaction
 
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js')
     script hljs.initHighlightingOnLoad();

@@ -7,6 +7,7 @@ green = #718c00
 gray-dark = #444
 gray-light = #bbb
 gray-lighter = #eee
+gray-bg = #f8f8f8
 
 *, *:before, *:after
   box-sizing border-box
@@ -14,7 +15,6 @@ gray-lighter = #eee
 body
   font-size 16px
   font-family Lato, sans-serif
-  padding 50px
   color gray-dark
 
 a, a:focus, a:active
@@ -30,12 +30,46 @@ code
 p, li
   line-height 1.4
 
-input[type='text']
-  padding 5px 10px
-  border-radius 3px
-  border 1px solid gray-light
-  &:focus
-    outline none
+@media (min-width: 800px)
+  side-width = 250px
+  body
+    padding 40px 40px 40px (side-width + 40px)
+  #side
+    fixed top left
+    height 100%
+    width side-width
+    overflow-y auto
+@media (max-width: 799px)
+  body
+    padding 20px
+  #side
+    display none
+
+#side
+  padding 50px 20px
+  background gray-bg
+  border-right 1px solid gray-lighter
+  font-size .9em
+  ul, li
+    list-style none
+  ul
+    padding-left 0
+    margin 0
+  li.section:nth-child(n + 2)
+    margin-top 40px
+  li
+    margin-bottom 10px
+    &.section
+      text-transform uppercase
+      font-weight 700
+  a
+    color gray
+    text-decoration none
+    transition color .25s
+    &:hover
+      color blue
+#main-content
+  max-width 800px
 
 .demo
   border 1px solid gray-lighter
@@ -57,20 +91,21 @@ info-box(color)
   > *:last-child
     margin-bottom 0
 
-.tip
-  info-box(red)
-  pre, p
-    margin 0
-.reference
-  info-box(yellow)
-.activity
-  info-box(blue)
+#main-content
+  .tip
+    info-box(red)
+  .reference
+    info-box(yellow)
+  .activity
+    info-box(blue)
 
-h1 .fa
-  margin-left 10px
-  color red
+h1
+  margin-top 0
+  .fa
+    margin-left 10px
+    color red
 
-#like
+#like-activity
   .like-demo
     font-size .9em
     padding 5px 10px
