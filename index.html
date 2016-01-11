@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CS 247 Web Workshop</title><link rel="stylesheet" href="//brick.a.ssl.fastly.net/Lato:300,300i,400,400i,700"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css"><script src="main.js"></script></head><body><h1>Web Programming Workshop<span class="fa fa-hand-peace-o"></span></h1><h2>CSS</h2><p>Share styles across elements and keep things DRY (Don't Repeat Yourself).</p><section><h3>Selectors</h3><div class="code"><pre><code class="css">/* Multiple selectors */
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CS 247 Web Workshop</title><link rel="stylesheet" href="//brick.a.ssl.fastly.net/Lato:300,300i,400,400i,700"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css"><script src="main.js"></script></head><body><div id="side"><ul><li class="section"><a href="#css">CSS</a></li><ul><li><a href="#selectors">Selectors</a></li><li><a href="#box-model">Box Model</a></li><li><a href="#position">Position</a></li><li><a href="#css-for-ui">CSS for Making UIs</a></li><li class="activity"><a href="#layout-activity">Layout Activity</a></li><li><a href="#transition">Transition</a></li><li><a href="#font-icons">Font Icons</a></li><li><a href="#css-preprocessors">Preprocessors</a></li></ul><li class="section"><a href="#js">JavaScript</a></li><ul><li><a href="#variables">Variables</a></li><li><a href="#asynchronous">Asynchronous JavaScript</a></li><li><a href="#es6">ECMAScript 6</a></li></ul><li class="section"><a href="#interaction">Adding Interaction</a></li><ul><li><a href="#jquery">jQuery</a></li><li class="activity"><a href="#form-activity">Form Validation Activity</a></li><li><a href="#reactive">UI As a Function of Data</a></li><li class="activity"><a href="#like-activity">Write a Like Button</a></li><li><a href="#spa">Single Page Application</a></li></ul></ul></div><div id="main-content"><h1>Web Programming Workshop<span class="fa fa-hand-peace-o"></span></h1><h2 id="css">CSS</h2><p>Share styles across elements and keep things DRY (Don't Repeat Yourself).</p><section id="selectors"><h3>Selectors</h3><div class="code"><pre><code class="css">/* Multiple selectors */
 .message.active {
   border-left: 2px solid blue;
   padding-left: 10px;
@@ -29,7 +29,7 @@ input:focus {
 }
 .reply:nth-child(2n+1) {
   text-transform: uppercase;
-}</code></pre></div><div class="demo"><p data-height="230" data-theme-id="21654" data-slug-hash="adWMJO" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Box Model</h3><img src="./assets/box-model.png" width="200px"><div class="code"><pre><code class="css">.box {
+}</code></pre></div><div class="demo"><p data-height="230" data-theme-id="21654" data-slug-hash="adWMJO" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section id="box-model"><h3>Box Model</h3><img src="./assets/box-model.png" width="200px"><div class="code"><pre><code class="css">.box {
   padding: 10px;
   border: 1px solid black;
 }
@@ -43,7 +43,7 @@ input:focus {
 *, *:before, *:after {
   box-sizing: border-box;
 }
-</code></pre></div></section><section><h3>Position</h3><p>Absolute positioned element is positioned relative to its <em>closest ancestor that is not statically positioned</em> (i.e. <code>position: static</code>)
+</code></pre></div></section><section id="position"><h3>Position</h3><p>Absolute positioned element is positioned relative to its <em>closest ancestor that is not statically positioned</em> (i.e. <code>position: static</code>)
 , or if such an ancestor does not exist, the window.</p><div class="code"><pre><code class="css">.first {
   /* This is the default value */
   /* position: static; */
@@ -55,7 +55,7 @@ input:focus {
   position: absolute;
   top: 5px;
   right: 10px;
-}</code></pre></div><div class="demo"><p data-height="200" data-theme-id="21654" data-slug-hash="bEWZax" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>CSS for Making UIs</h3><div class="code"><pre><code class="css">.box {
+}</code></pre></div><div class="demo"><p data-height="200" data-theme-id="21654" data-slug-hash="bEWZax" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section id="css-for-ui"><h3>CSS for Making UIs</h3><div class="code"><pre><code class="css">.box {
   /* Round corner */
   border-radius: 10px;
 
@@ -67,7 +67,7 @@ input:focus {
 
   /* Gradient */
   background: linear-gradient(#c82829, #e4703f);
-}</code></pre></div><div class="demo"><p data-height="350" data-theme-id="21654" data-slug-hash="zrzGXb" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section class="activity"><h3>Layout Activity</h3><p>Implement the layout of left screen in <a href="https://dribbble.com/shots/2227334-Social-calendar-app-mobile/attachments/414228" target="_blank">this design</a>:</p><div><img src="https://d13yacurqjgara.cloudfront.net/users/149817/screenshots/2227334/nahlad.png" width="400px"></div><p>Fork <a href="http://codepen.io/scottcheng/pen/EPmJyW/" target="_blank">this pen</a> to start.</p><p>Focus on the position and size of each UI component, and don't worry too much about details like shadows, icons and colors. Pay attention to which elements should be scrollable.</p></section><div class="reference"><p><a href="http://learnlayout.com/" target="_blank">This tutorial</a> is great for learning layouts in CSS</p></div><div class="reference"><p>Flexbox is a more cutting-edge solution to CSS layout. Learn about it <a href="http://flexboxfroggy.com/" target="_blank">here</a>!</p></div><section><h3>Transition</h3><p>Smooth and natural.</p><div class="code"><pre><code class="css">.button {
+}</code></pre></div><div class="demo"><p data-height="350" data-theme-id="21654" data-slug-hash="zrzGXb" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section id="layout-activity" class="activity"><h3>Layout Activity</h3><p>Implement the layout of left screen in <a href="https://dribbble.com/shots/2227334-Social-calendar-app-mobile/attachments/414228" target="_blank">this design</a>:</p><div><img src="https://d13yacurqjgara.cloudfront.net/users/149817/screenshots/2227334/nahlad.png" width="400px"></div><p>Fork <a href="http://codepen.io/scottcheng/pen/EPmJyW/" target="_blank">this pen</a> to start.</p><p>Focus on the position and size of each UI component, and don't worry too much about details like shadows, icons and colors. Pay attention to which elements should be scrollable.</p></section><div class="reference"><p><a href="http://learnlayout.com/" target="_blank">This tutorial</a> is great for learning layouts in CSS</p></div><div class="reference"><p>Flexbox is a more cutting-edge solution to CSS layout. Learn about it <a href="http://flexboxfroggy.com/" target="_blank">here</a>!</p></div><section id="transition"><h3>Transition</h3><p>Smooth and natural.</p><div class="code"><pre><code class="css">.button {
   transition: background .25s;
 }
 .arrow {
@@ -79,11 +79,11 @@ input:focus {
 .button:active .arrow {
   transform: translateX(20px) scale(2);
   transition: transform .25s;
-}</code></pre></div><div class="demo"><p data-height="160" data-theme-id="21654" data-slug-hash="RrVdJj" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Font Icons</h3><p>Infinitely scalable, easily stylable</p><div class="code"><pre><code class="html">&lt;span class=&quot;fa fa-cab&quot;&gt;&lt;/span&gt;
+}</code></pre></div><div class="demo"><p data-height="160" data-theme-id="21654" data-slug-hash="RrVdJj" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section id="font-icons"><h3>Font Icons</h3><p>Infinitely scalable, easily stylable</p><div class="code"><pre><code class="html">&lt;span class=&quot;fa fa-cab&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-train&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-rocket&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-ambulance&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;fa fa-shopping-cart&quot;&gt;&lt;/span&gt;</code></pre></div><div class="demo"><p data-height="151" data-theme-id="21654" data-slug-hash="PZmLxa" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="reference"><p>Two great, easy-to-use font icon solutions:</p><ul><li><a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> provides a comprehensive set of font icons.</li><li><a href="https://icomoon.io/app/" target="_blank">Icomoon App</a> is a tool to make your icon font from various existing libraries.</li></ul></div></section><section><h3>Preprocessors</h3><p>CSS is hard to write, and preprocessors make it <em>much</em> easier.</p><div class="code"><pre><code class="stylus">// Variables
+&lt;span class=&quot;fa fa-shopping-cart&quot;&gt;&lt;/span&gt;</code></pre></div><div class="demo"><p data-height="151" data-theme-id="21654" data-slug-hash="PZmLxa" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="reference"><p>Two great, easy-to-use font icon solutions:</p><ul><li><a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> provides a comprehensive set of font icons.</li><li><a href="https://icomoon.io/app/" target="_blank">Icomoon App</a> is a tool to make your icon font from various existing libraries.</li></ul></div></section><section id="css-preprocessors"><h3>Preprocessors</h3><p>CSS is hard to write, and preprocessors make it <em>much</em> easier.</p><div class="code"><pre><code class="stylus">// Variables
 blue = #328ddc;
 margin-large = 20px;
 margin-small = 5px;
@@ -103,7 +103,7 @@ info-box(color)
   info-box(blue);
 .reference
   info-box(yellow);
-</code></pre></div><div class="reference"><p>Three most popular CSS preprocessors: <a href="http://stylus-lang.com/" target="_blank">Stylus</a>, <a href="http://sass-lang.com/" target="_blank">Sass</a>, <a href="http://lesscss.org/" target="_blank">Less.</a></p></div></section><h2>JavaScript</h2><section><h3>Variables</h3><div class="code"><pre><code class="javascript">// Primitive types
+</code></pre></div><div class="reference"><p>Three most popular CSS preprocessors: <a href="http://stylus-lang.com/" target="_blank">Stylus</a>, <a href="http://sass-lang.com/" target="_blank">Sass</a>, <a href="http://lesscss.org/" target="_blank">Less.</a></p></div></section><h2 id="js">JavaScript</h2><section id="variables"><h3>Variables</h3><div class="code"><pre><code class="javascript">// Primitive types
 var num = 1;
 var str = &#039;pizza&#039;;
 var boo = false;
@@ -158,9 +158,9 @@ var doSomething = function(obj) {
 var luke = { name: &#039;Luke&#039; };
 doSomething(luke);
 // luke.secret is exposed!
-</code></pre></div><div class="tip"><p>Always use triple equals to compare variables:</p><div class="code"><pre><code class="javascript">var go = token === user.token;
+</code></pre></div><div class="tip"><p>Always use triple equals to compare variables:</p><pre><code class="javascript">var go = token === user.token;
 var stop = token !== user.token;
-</code></pre></div></div></section><section><h3>Asynchronous JavaScript</h3><div class="code"><pre><code class="javascript">// Callback functions
+</code></pre></div></section><section id="asynchronous"><h3>Asynchronous JavaScript</h3><div class="code"><pre><code class="javascript">// Callback functions
 var play = function() {
   console.log(&#039;Play with cat&#039;);
 };
@@ -203,7 +203,7 @@ for (var id = 0; id &lt; 3; id++) {
     console.log(id, data);
   });
 });
-</code></pre></div><div class="reference"><p><a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742" target="_blank"><i>JavaScript: The Good Parts</i></a> and <a href="http://eloquentjavascript.net/" target="_blank"><i>Eloquent JavaScript</i></a> are some good books to learn JavaScript.</p></div></section><section><h3>ECMAScript 6</h3><p>Latest standard of JavaScript with tons of great features.</p><div class="code"><pre><code class="javascript">// Block-scoped variables and const varialbes
+</code></pre></div><div class="reference"><p><a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742" target="_blank"><i>JavaScript: The Good Parts</i></a> and <a href="http://eloquentjavascript.net/" target="_blank"><i>Eloquent JavaScript</i></a> are some good books to learn JavaScript.</p></div></section><section id="es6"><h3>ECMAScript 6</h3><p>Latest standard of JavaScript with tons of great features.</p><div class="code"><pre><code class="javascript">// Block-scoped variables and const varialbes
 for (let i = 0; i &lt; 10; i++) {}
 // i is not defined here
 
@@ -232,7 +232,7 @@ const ajax = ({ method, url }) =&gt; {
 
 
 // And much more
-</code></pre></div><div class="reference"><p>Learn more about what's new in ES6 <a href="https://github.com/lukehoban/es6features" target="_blank">here</a>!</p></div></section><h2>Adding Interaction</h2><section><h3>jQuery</h3><p>A handy toolkit to help with manipulating the DOM and handling events, among other things.</p><div class="code"><pre><code class="javascript">// Selecting elements
+</code></pre></div><div class="reference"><p>Learn more about what's new in ES6 <a href="https://github.com/lukehoban/es6features" target="_blank">here</a>!</p></div></section><h2 id="interaction">Adding Interaction</h2><section><h3 id="jquery">jQuery</h3><p>A handy toolkit to help with manipulating the DOM and handling events, among other things.</p><div class="code"><pre><code class="javascript">// Selecting elements
 var $user = $(&#039;.user&#039;);
 var $name = $(&#039;.user .name&#039;);
 var $img = $(&#039;.user &gt; img&#039;);
@@ -285,7 +285,7 @@ $input.keydown(function() {
 $.get(&#039;/api/friends&#039;, function() {
   // Update friends list
 });
-</code></pre></div><div class="reference"><p>See complete jQuery API doc <a href="http://api.jquery.com/" target="_blank">here</a>.</p></div><div class="tip"><p>Avoid setting styles directly from jQuery. Instead, set classes in jQuery and let CSS handle the styles.</p></div></section><section class="activity"><h3>Form Validation Activity</h3><p>Use jQuery to validate the name input. Show user if the input passes validation.</p><p>Fork <a href="http://codepen.io/scottcheng/pen/pgwvqN" target="_blank">this pen</a> to get started.</p></section><section><h3>UI As a Function of Data</h3><div class="code"><code><pre>{ name: 'Luke', inventory: [ 'Poncho' ] }
+</code></pre></div><div class="reference"><p>See complete jQuery API doc <a href="http://api.jquery.com/" target="_blank">here</a>.</p></div><div class="tip"><p>Avoid setting styles directly from jQuery. Instead, set classes in jQuery and let CSS handle the styles.</p></div></section><section id="form-activity" class="activity"><h3>Form Validation Activity</h3><p>Use jQuery to validate the name input. Show user if the input passes validation.</p><p>Fork <a href="http://codepen.io/scottcheng/pen/pgwvqN" target="_blank">this pen</a> to get started.</p></section><section id="reactive"><h3>UI As a Function of Data</h3><div class="code"><code><pre>{ name: 'Luke', inventory: [ 'Poncho' ] }
 
     &darr;  &darr;  &darr;
 
@@ -309,4 +309,4 @@ $.get(&#039;/api/friends&#039;, function() {
 |        |--------------|
 |        |  + Add more  |
 -------------------------
-</pre></code></div></section><section id="like" class="activity"><h3>Write a Like Button</h3><p>Implement a like/unlike button, so that when user clicks on the icon, it toggles between <span class="like-demo"><span class="fa fa-heart"></span><span class="like-count">17</span></span> and <span class="like-demo"><span class="fa fa-heart liked"></span><span class="like-count">18</span></span>.</p><p>Fork <a href="http://codepen.io/scottcheng/pen/mVwJzP" target="_blank">this pen</a> to start.</p></section><section><h3>Next steps</h3><p>If you want to try out the coolest way of writing a web app, I strongly recommend trying <a href="https://facebook.github.io/react/" target="_blank">React</a>!</p></section><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script async src="//code.jquery.com/jquery-1.12.0.min.js"></script><script async src="//assets.codepen.io/assets/embed/ei.js"></script><script>var youcannotfindme = {};</script></body></html>
+</pre></code></div></section><section id="like-activity" class="activity"><h3>Write a Like Button</h3><p>Implement a like/unlike button, so that when user clicks on the heart, it toggles between <span class="like-demo"><span class="fa fa-heart"></span><span class="like-count">17</span></span> and <span class="like-demo"><span class="fa fa-heart liked"></span><span class="like-count">18</span></span>.</p><p>Fork <a href="http://codepen.io/scottcheng/pen/mVwJzP" target="_blank">this pen</a> to start.</p></section><section id="spa"><h3>Single Page Application</h3><p>Web app that works like a native app. Gmail is a great example.</p><div class="reference"><p>If you want to try out the coolest way of writing a web app, I strongly recommend <a href="https://facebook.github.io/react/" target="_blank">React</a>!</p></div></section></div><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script async src="//code.jquery.com/jquery-1.12.0.min.js"></script><script async src="//assets.codepen.io/assets/embed/ei.js"></script><script>var youcannotfindme = {};</script></body></html>
