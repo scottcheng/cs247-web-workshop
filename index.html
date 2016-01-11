@@ -29,7 +29,7 @@ input:focus {
 }
 .reply:nth-child(2n+1) {
   text-transform: uppercase;
-}</code></pre></div><div class="demo"><p data-height="230" data-theme-id="21654" data-slug-hash="adWMJO" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Box model</h3><img src="./assets/box-model.png" width="200px"><div class="code"><pre><code class="css">.box {
+}</code></pre></div><div class="demo"><p data-height="230" data-theme-id="21654" data-slug-hash="adWMJO" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Box Model</h3><img src="./assets/box-model.png" width="200px"><div class="code"><pre><code class="css">.box {
   padding: 10px;
   border: 1px solid black;
 }
@@ -39,7 +39,7 @@ input:focus {
 .good {
   box-sizing: border-box;
   width: 100px;
-}</code></pre></div><div class="demo"><p data-height="150" data-theme-id="21654" data-slug-hash="obWVeY" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="tip"><pre><code class="css">/* Always border-box everything */
+}</code></pre></div><div class="demo"><p data-height="150" data-theme-id="21654" data-slug-hash="obWVeY" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="tip"><pre><code class="css">/* It&#039;s usually a good idea to border-box everything */
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -55,7 +55,19 @@ input:focus {
   position: absolute;
   top: 5px;
   right: 10px;
-}</code></pre></div><div class="demo"><p data-height="200" data-theme-id="21654" data-slug-hash="bEWZax" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section class="activity"><h3>Layout exercise</h3><p>Implement the layout of left screen in <a href="https://dribbble.com/shots/2227334-Social-calendar-app-mobile/attachments/414228" target="_blank">this design</a>:</p><div><img src="https://d13yacurqjgara.cloudfront.net/users/149817/screenshots/2227334/nahlad.png" width="400px"></div><p>Fork <a href="http://codepen.io/scottcheng/pen/EPmJyW/" target="_blank">this pen</a> to start.</p><p>Focus on the position and size of each UI component, and don't worry too much about details like shadows, icons and colors. Pay attention to which elements should be scrollable.</p></section><div class="reference"><p><a href="http://learnlayout.com/" target="_blank">This tutorial</a> is great for learning layouts in CSS</p></div><div class="reference"><p>Flexbox is a more cutting-edge solution to CSS layout. Learn about it <a href="http://flexboxfroggy.com/" target="_blank">here</a>!</p></div><section><h3>Transition</h3><p>Smooth and natural.</p><div class="code"><pre><code class="css">.button {
+}</code></pre></div><div class="demo"><p data-height="200" data-theme-id="21654" data-slug-hash="bEWZax" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>CSS for Making UIs</h3><div class="code"><pre><code class="css">.box {
+  /* Round corner */
+  border-radius: 10px;
+
+  /* Shadow */
+  box-shadow: 0 5px 7px rgba(0, 0, 0, .4);
+
+  /* Transform */
+  transform: rotate(30deg) scaleX(1.2);
+
+  /* Gradient */
+  background: linear-gradient(#c82829, #e4703f);
+}</code></pre></div><div class="demo"><p data-height="350" data-theme-id="21654" data-slug-hash="zrzGXb" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section class="activity"><h3>Layout Activity</h3><p>Implement the layout of left screen in <a href="https://dribbble.com/shots/2227334-Social-calendar-app-mobile/attachments/414228" target="_blank">this design</a>:</p><div><img src="https://d13yacurqjgara.cloudfront.net/users/149817/screenshots/2227334/nahlad.png" width="400px"></div><p>Fork <a href="http://codepen.io/scottcheng/pen/EPmJyW/" target="_blank">this pen</a> to start.</p><p>Focus on the position and size of each UI component, and don't worry too much about details like shadows, icons and colors. Pay attention to which elements should be scrollable.</p></section><div class="reference"><p><a href="http://learnlayout.com/" target="_blank">This tutorial</a> is great for learning layouts in CSS</p></div><div class="reference"><p>Flexbox is a more cutting-edge solution to CSS layout. Learn about it <a href="http://flexboxfroggy.com/" target="_blank">here</a>!</p></div><section><h3>Transition</h3><p>Smooth and natural.</p><div class="code"><pre><code class="css">.button {
   transition: background .25s;
 }
 .arrow {
@@ -67,7 +79,7 @@ input:focus {
 .button:active .arrow {
   transform: translateX(20px) scale(2);
   transition: transform .25s;
-}</code></pre></div><div class="demo"><p data-height="160" data-theme-id="21654" data-slug-hash="RrVdJj" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Font icons</h3><p>Infinitely scalable, easily stylable</p><div class="code"><pre><code class="html">&lt;span class=&quot;fa fa-cab&quot;&gt;&lt;/span&gt;
+}</code></pre></div><div class="demo"><p data-height="160" data-theme-id="21654" data-slug-hash="RrVdJj" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section><h3>Font Icons</h3><p>Infinitely scalable, easily stylable</p><div class="code"><pre><code class="html">&lt;span class=&quot;fa fa-cab&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-train&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-rocket&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-ambulance&quot;&gt;&lt;/span&gt;
@@ -95,8 +107,8 @@ info-box(color)
 var num = 1;
 var str = &#039;pizza&#039;;
 var boo = false;
-var und = undefined;
 var nil = null;
+var und = undefined;
 
 // Object
 var obj = {
@@ -107,6 +119,7 @@ var obj = {
   },
   kiwi: null,
 };
+// obj.key === obj[&#039;key&#039;]
 
 // Arrays are special objects
 var arr = [&#039;value&#039;, 42, { isGood: true }, null];
@@ -219,4 +232,81 @@ const ajax = ({ method, url }) =&gt; {
 
 
 // And much more
-</code></pre></div><div class="reference"><p>Learn more about what's new in ES6 <a href="https://github.com/lukehoban/es6features" target="_blank">here</a>!</p></div></section><h2>Interaction</h2><script async src="//assets.codepen.io/assets/embed/ei.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script>var youcannotfindme = {};</script></body></html>
+</code></pre></div><div class="reference"><p>Learn more about what's new in ES6 <a href="https://github.com/lukehoban/es6features" target="_blank">here</a>!</p></div></section><h2>Adding Interaction</h2><section><h3>jQuery</h3><p>A handy toolkit to help with manipulating the DOM and handling events, among other things.</p><div class="code"><pre><code class="javascript">// Selecting elements
+var $user = $(&#039;.user&#039;);
+var $name = $(&#039;.user .name&#039;);
+var $img = $(&#039;.user &gt; img&#039;);
+
+
+// Traverse the DOM
+$name.parent();
+$name.closest(&#039;.user&#039;);
+$user.children();
+$user.siblings(&#039;.friend&#039;);
+$user.siblings().filter(&#039;.friend&#039;); // Same as above
+
+
+// Manipulating the DOM
+$user.addClass(&#039;friend&#039;);
+$user.removeClass(&#039;foe&#039;);
+
+var src = $img.attr(&#039;src&#039;);
+$img.attr(&#039;src&#039;, newSrc);
+
+var fontSize = $name.css(&#039;fontSize&#039;);
+$name.css(&#039;fontSize&#039;, 100);
+
+var name = $name.text();
+$name.text(&#039;Luke&#039;);
+
+$(&#039;&lt;div&gt;&#039;).text(&#039;Jedi&#039;).addClass(&#039;role&#039;).appendTo($user);
+$name.remove();
+
+// Animate the change
+$img.fadeOut();
+$name.slideUp(function() {
+  $name.show(&#039;slow&#039;);
+});
+
+// Handling events
+$img.click(function() {
+  // Open image
+});
+$input.change(function() {
+  // Log the current value
+  console.log($(this).val());
+});
+$input.keydown(function() {
+  // Show suggestions
+});
+
+
+// Ajax
+$.get(&#039;/api/friends&#039;, function() {
+  // Update friends list
+});
+</code></pre></div><div class="reference"><p>See complete jQuery API doc <a href="http://api.jquery.com/" target="_blank">here</a>.</p></div><div class="tip"><p>Avoid setting styles directly from jQuery. Instead, set classes in jQuery and let CSS handle the styles.</p></div></section><section class="activity"><h3>Form Validation Activity</h3><p>Use jQuery to validate the name input. Show user if the input passes validation.</p><p>Fork <a href="http://codepen.io/scottcheng/pen/pgwvqN" target="_blank">this pen</a> to get started.</p></section><section><h3>UI As a Function of Data</h3><div class="code"><code><pre>{ name: 'Luke', inventory: [ 'Poncho' ] }
+
+    &darr;  &darr;  &darr;
+
+-------------------------
+|        |  Poncho      |
+|        |--------------|
+|  LUKE  |  + Add more  |
+|        |              |
+|        |              |
+-------------------------
+
+
+{ name: 'Luke', inventory: [ 'Poncho', 'Lightsaber' ] }
+
+    &darr;  &darr;  &darr;
+
+-------------------------
+|        |  Poncho      |
+|        |--------------|
+|  LUKE  |  Lightsaber  |
+|        |--------------|
+|        |  + Add more  |
+-------------------------
+</pre></code></div></section><section id="like" class="activity"><h3>Write a Like Button</h3><p>Implement a like/unlike button, so that when user clicks on the icon, it toggles between <span class="like-demo"><span class="fa fa-heart"></span><span class="like-count">17</span></span> and <span class="like-demo"><span class="fa fa-heart liked"></span><span class="like-count">18</span></span>.</p><p>Fork <a href="http://codepen.io/scottcheng/pen/mVwJzP" target="_blank">this pen</a> to start.</p></section><section><h3>Next steps</h3><p>If you want to try out the coolest way of writing a web app, I strongly recommend trying <a href="https://facebook.github.io/react/" target="_blank">React</a>!</p></section><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><script async src="//code.jquery.com/jquery-1.12.0.min.js"></script><script async src="//assets.codepen.io/assets/embed/ei.js"></script><script>var youcannotfindme = {};</script></body></html>
