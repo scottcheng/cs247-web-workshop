@@ -1,0 +1,136 @@
+h2 Adding Interaction
+
+section
+  h3 jQuery
+  p A handy toolkit to help with manipulating the DOM and handling events, among other things.
+
+  .code
+    :jssrc
+      // Selecting elements
+      var $user = $('.user');
+      var $name = $('.user .name');
+      var $img = $('.user > img');
+
+
+      // Traverse the DOM
+      $name.parent();
+      $name.closest('.user');
+      $user.children();
+      $user.siblings('.friend');
+      $user.siblings().filter('.friend'); // Same as above
+
+
+      // Manipulating the DOM
+      $user.addClass('friend');
+      $user.removeClass('foe');
+
+      var src = $img.attr('src');
+      $img.attr('src', newSrc);
+
+      var fontSize = $name.css('fontSize');
+      $name.css('fontSize', 100);
+
+      var name = $name.text();
+      $name.text('Luke');
+
+      $('<div>').text('Jedi').addClass('role').appendTo($user);
+      $name.remove();
+
+      // Animate the change
+      $img.fadeOut();
+      $name.slideUp(function() {
+        $name.show('slow');
+      });
+
+      // Handling events
+      $img.click(function() {
+        // Open image
+      });
+      $input.change(function() {
+        // Log the current value
+        console.log($(this).val());
+      });
+      $input.keydown(function() {
+        // Show suggestions
+      });
+
+
+      // Ajax
+      $.get('/api/friends', function() {
+        // Update friends list
+      });
+
+  .reference
+    p
+      | See complete jQuery API doc 
+      a(href='http://api.jquery.com/' target='_blank') here
+      | .
+
+  .tip
+    p Avoid setting styles directly from jQuery. Instead, set classes in jQuery and let CSS handle the styles.
+
+section.activity
+  h3 Form Validation Activity
+
+  p Use jQuery to validate the name input. Show user if the input passes validation.
+  p
+    | Fork 
+    a(href='http://codepen.io/scottcheng/pen/pgwvqN' target='_blank') this pen
+    |  to get started.
+
+  //- .demo
+    p(data-height='108' data-theme-id='21654' data-slug-hash='pgwvqN' data-default-tab='result' data-user='scottcheng' class='codepen')
+
+section
+  h3 UI As a Function of Data
+  .code
+    code: pre.
+      { name: 'Luke', inventory: [ 'Poncho' ] }
+
+          &darr;  &darr;  &darr;
+
+      -------------------------
+      |        |  Poncho      |
+      |        |--------------|
+      |  LUKE  |  + Add more  |
+      |        |              |
+      |        |              |
+      -------------------------
+
+
+      { name: 'Luke', inventory: [ 'Poncho', 'Lightsaber' ] }
+
+          &darr;  &darr;  &darr;
+
+      -------------------------
+      |        |  Poncho      |
+      |        |--------------|
+      |  LUKE  |  Lightsaber  |
+      |        |--------------|
+      |        |  + Add more  |
+      -------------------------
+
+section#like.activity
+  h3 Write a Like Button
+  p
+    | Implement a like/unlike button, so that when user clicks on the icon, it toggles between 
+    span.like-demo
+      span.fa.fa-heart
+      span.like-count 17
+    |  and 
+    span.like-demo
+      span.fa.fa-heart.liked
+      span.like-count 18
+    | .
+
+  p
+    | Fork 
+    a(href='http://codepen.io/scottcheng/pen/mVwJzP' target='_blank') this pen
+    |  to start.
+
+section
+  h3 Next steps
+  p
+    | If you want to try out the coolest way of writing a web app, I strongly recommend trying 
+    a(href='https://facebook.github.io/react/' target='_blank') React
+    | !

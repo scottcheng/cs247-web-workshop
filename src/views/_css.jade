@@ -44,7 +44,7 @@ section
 
 
 section
-  h3 Box model
+  h3 Box Model
 
   img(src='./assets/box-model.png' width='200px')
 
@@ -66,7 +66,7 @@ section
 
   .tip
     :csssrc
-      /* Always border-box everything */
+      /* It's usually a good idea to border-box everything */
       *, *:before, *:after {
         box-sizing: border-box;
       }
@@ -99,10 +99,30 @@ section
     p(data-height='200' data-theme-id='21654' data-slug-hash='bEWZax' data-default-tab='result' data-user='scottcheng' class='codepen')
 
 //- section
-  h3 Stacking context
+  h3 Stacking Context
+
+section
+  h3 CSS for Making UIs
+  .code
+    :csssrc
+      .box {
+        /* Round corner */
+        border-radius: 10px;
+
+        /* Shadow */
+        box-shadow: 0 5px 7px rgba(0, 0, 0, .4);
+
+        /* Transform */
+        transform: rotate(30deg) scaleX(1.2);
+
+        /* Gradient */
+        background: linear-gradient(#c82829, #e4703f);
+      }
+  .demo
+    p(data-height="350" data-theme-id="21654" data-slug-hash="zrzGXb" data-default-tab="result" data-user="scottcheng" class='codepen')
 
 section.activity
-  h3 Layout exercise
+  h3 Layout Activity
 
   p
     | Implement the layout of left screen in 
@@ -148,15 +168,15 @@ section
   .demo
     p(data-height='160' data-theme-id='21654' data-slug-hash='RrVdJj' data-default-tab='result' data-user='scottcheng' class='codepen')
 
-//- .activity
-  h3 Make a fancy link
+//- section.activity
+  h3 Make a Fancy Link
   //- padding, transition, color, size, transform, use your imagination
 
 //- section
-  h3 Selector specificity
+  h3 Selector Specificity
 
 section
-  h3 Font icons
+  h3 Font Icons
   p Infinitely scalable, easily stylable
   .code
     :htmlsrc
