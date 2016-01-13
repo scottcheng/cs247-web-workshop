@@ -76,7 +76,7 @@ section#position
   p
     | Absolute positioned element is positioned relative to its 
     em closest ancestor that is not statically positioned
-    |  (i.e. 
+    |  (i.e. not 
     code position: static
     | )
     | , or if such an ancestor does not exist, the window.
@@ -167,7 +167,7 @@ section#transition
       }
       .button:active .arrow {
         transform: translateX(20px) scale(2);
-        transition: transform .25s;
+        transition-duration: .25s;
       }
   .demo
     p(data-height='160' data-theme-id='21654' data-slug-hash='RrVdJj' data-default-tab='result' data-user='scottcheng' class='codepen')
@@ -181,7 +181,7 @@ section#transition
 
 section#font-icons
   h3 Font Icons
-  p Infinitely scalable, easily stylable
+  p Infinitely scalable, easily stylable.
   .code
     :htmlsrc
       <span class="fa fa-cab"></span>
@@ -205,7 +205,7 @@ section#font-icons
 section#css-preprocessors
   h3 Preprocessors
   p
-    | CSS is hard to write, and preprocessors make it 
+    | CSS is hard to write and harder to maintain, and preprocessors make it 
     em much
     |  easier.
   .code
