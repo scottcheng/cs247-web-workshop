@@ -43,7 +43,7 @@ input:focus {
 *, *:before, *:after {
   box-sizing: border-box;
 }
-</code></pre></div></section><section id="position"><h3>Position</h3><p>Absolute positioned element is positioned relative to its <em>closest ancestor that is not statically positioned</em> (i.e. <code>position: static</code>)
+</code></pre></div></section><section id="position"><h3>Position</h3><p>Absolute positioned element is positioned relative to its <em>closest ancestor that is not statically positioned</em> (i.e. not <code>position: static</code>)
 , or if such an ancestor does not exist, the window.</p><div class="code"><pre><code class="css">.first {
   /* This is the default value */
   /* position: static; */
@@ -78,12 +78,12 @@ input:focus {
 }
 .button:active .arrow {
   transform: translateX(20px) scale(2);
-  transition: transform .25s;
-}</code></pre></div><div class="demo"><p data-height="160" data-theme-id="21654" data-slug-hash="RrVdJj" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section id="font-icons"><h3>Font Icons</h3><p>Infinitely scalable, easily stylable</p><div class="code"><pre><code class="html">&lt;span class=&quot;fa fa-cab&quot;&gt;&lt;/span&gt;
+  transition-duration: .25s;
+}</code></pre></div><div class="demo"><p data-height="160" data-theme-id="21654" data-slug-hash="RrVdJj" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div></section><section id="font-icons"><h3>Font Icons</h3><p>Infinitely scalable, easily stylable.</p><div class="code"><pre><code class="html">&lt;span class=&quot;fa fa-cab&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-train&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-rocket&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;fa fa-ambulance&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;fa fa-shopping-cart&quot;&gt;&lt;/span&gt;</code></pre></div><div class="demo"><p data-height="151" data-theme-id="21654" data-slug-hash="PZmLxa" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="reference"><p>Two great, easy-to-use font icon solutions:</p><ul><li><a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> provides a comprehensive set of font icons.</li><li><a href="https://icomoon.io/app/" target="_blank">Icomoon App</a> is a tool to make your icon font from various existing libraries.</li></ul></div></section><section id="css-preprocessors"><h3>Preprocessors</h3><p>CSS is hard to write, and preprocessors make it <em>much</em> easier.</p><div class="code"><pre><code class="stylus">// Variables
+&lt;span class=&quot;fa fa-shopping-cart&quot;&gt;&lt;/span&gt;</code></pre></div><div class="demo"><p data-height="151" data-theme-id="21654" data-slug-hash="PZmLxa" data-default-tab="result" data-user="scottcheng" class="codepen"></p></div><div class="reference"><p>Two great, easy-to-use font icon solutions:</p><ul><li><a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> provides a comprehensive set of font icons.</li><li><a href="https://icomoon.io/app/" target="_blank">Icomoon App</a> is a tool to make your icon font from various existing libraries.</li></ul></div></section><section id="css-preprocessors"><h3>Preprocessors</h3><p>CSS is hard to write and harder to maintain, and preprocessors make it <em>much</em> easier.</p><div class="code"><pre><code class="stylus">// Variables
 blue = #328ddc;
 margin-large = 20px;
 margin-small = 5px;
@@ -232,7 +232,7 @@ const ajax = ({ method, url }) =&gt; {
 
 
 // And much more
-</code></pre></div><div class="reference"><p>Learn more about what's new in ES6 <a href="https://github.com/lukehoban/es6features" target="_blank">here</a>!</p></div></section><h2 id="interaction">Adding Interaction</h2><section><h3 id="jquery">jQuery</h3><p>A handy toolkit to help with manipulating the DOM and handling events, among other things.</p><div class="code"><pre><code class="javascript">// Selecting elements
+</code></pre></div><div class="reference"><p>Learn more about what's new in ES6 <a href="https://github.com/lukehoban/es6features" target="_blank">here</a>!</p><p><a href="https://hacks.mozilla.org/category/es6-in-depth/" target="_blank">Here</a> is a great series of articles if you want to build a deeper understanding of ES6.</p></div></section><h2 id="interaction">Adding Interaction</h2><section><h3 id="jquery">jQuery</h3><p>A handy toolkit to help with manipulating the DOM and handling events, among other things.</p><div class="code"><pre><code class="javascript">// Selecting elements
 var $user = $(&#039;.user&#039;);
 var $name = $(&#039;.user .name&#039;);
 var $img = $(&#039;.user &gt; img&#039;);
@@ -267,6 +267,7 @@ $img.fadeOut();
 $name.slideUp(function() {
   $name.show(&#039;slow&#039;);
 });
+
 
 // Handling events
 $img.click(function() {
