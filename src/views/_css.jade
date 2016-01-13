@@ -7,10 +7,24 @@ section#selectors
 
   .code
     :csssrc
-      /* Multiple selectors */
+      /* Class selector */
+      .class-name {}
+
+      /* ID selector */
+      #id-name {}
+
+      /* Tag selector */
+      input {}
+
+      /* Subset/intersection selector */
       .message.active {
         border-left: 2px solid blue;
         padding-left: 10px;
+      }
+
+      /* Union selector */
+      .reply, input {
+        font-size: 1.2em;
       }
 
       /* Descendents */
