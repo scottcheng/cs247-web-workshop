@@ -1,7 +1,21 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CS 247 Web Workshop</title><link rel="stylesheet" href="//brick.a.ssl.fastly.net/Lato:300,300i,400,400i,700"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css"><script src="main.js"></script></head><body><div id="side"><ul><li class="section"><a href="#css">CSS</a></li><ul><li><a href="#selectors">Selectors</a></li><li><a href="#box-model">Box Model</a></li><li><a href="#position">Position</a></li><li><a href="#css-for-ui">CSS for Making UIs</a></li><li class="activity"><a href="#layout-activity">Layout Activity</a></li><li><a href="#transition">Transition</a></li><li><a href="#font-icons">Font Icons</a></li><li><a href="#css-preprocessors">Preprocessors</a></li></ul><li class="section"><a href="#js">JavaScript</a></li><ul><li><a href="#variables">Variables</a></li><li><a href="#asynchronous">Asynchronous JavaScript</a></li><li><a href="#es6">ECMAScript 6</a></li></ul><li class="section"><a href="#interaction">Adding Interaction</a></li><ul><li><a href="#jquery">jQuery</a></li><li class="activity"><a href="#form-activity">Form Validation Activity</a></li><li><a href="#reactive">UI As a Function of Data</a></li><li class="activity"><a href="#like-activity">Write a Like Button</a></li><li><a href="#spa">Single Page Application</a></li></ul></ul></div><div id="main-content"><h1>Web Programming Workshop<span class="fa fa-hand-peace-o"></span></h1><h2 id="css">CSS</h2><p>Share styles across elements and keep things DRY (Don't Repeat Yourself).</p><section id="selectors"><h3>Selectors</h3><div class="code"><pre><code class="css">/* Multiple selectors */
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CS 247 Web Workshop</title><link rel="stylesheet" href="//brick.a.ssl.fastly.net/Lato:300,300i,400,400i,700"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/tomorrow.min.css"><script src="main.js"></script></head><body><div id="side"><ul><li class="section"><a href="#css">CSS</a></li><ul><li><a href="#selectors">Selectors</a></li><li><a href="#box-model">Box Model</a></li><li><a href="#position">Position</a></li><li><a href="#css-for-ui">CSS for Making UIs</a></li><li class="activity"><a href="#layout-activity">Layout Activity</a></li><li><a href="#transition">Transition</a></li><li><a href="#font-icons">Font Icons</a></li><li><a href="#css-preprocessors">Preprocessors</a></li></ul><li class="section"><a href="#js">JavaScript</a></li><ul><li><a href="#variables">Variables</a></li><li><a href="#asynchronous">Asynchronous JavaScript</a></li><li><a href="#es6">ECMAScript 6</a></li></ul><li class="section"><a href="#interaction">Adding Interaction</a></li><ul><li><a href="#jquery">jQuery</a></li><li class="activity"><a href="#form-activity">Form Validation Activity</a></li><li><a href="#reactive">UI As a Function of Data</a></li><li class="activity"><a href="#like-activity">Write a Like Button</a></li><li><a href="#spa">Single Page Application</a></li></ul></ul></div><div id="main-content"><h1>Web Programming Workshop<span class="fa fa-hand-peace-o"></span></h1><h2 id="css">CSS</h2><p>Share styles across elements and keep things DRY (Don't Repeat Yourself).</p><section id="selectors"><h3>Selectors</h3><div class="code"><pre><code class="css">/* Class selector */
+.class-name {}
+
+/* ID selector */
+#id-name {}
+
+/* Tag selector */
+input {}
+
+/* Subset/intersection selector */
 .message.active {
   border-left: 2px solid blue;
   padding-left: 10px;
+}
+
+/* Union selector */
+.reply, input {
+  font-size: 1.2em;
 }
 
 /* Descendents */
